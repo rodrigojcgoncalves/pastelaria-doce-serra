@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   CAMADA 1: PRIMITIVE TOKENS (Valores Brutos & Fundacionais)
+   ========================================================================== */
+:root {
+  /* Paleta Caramelo / Dourado de Forno (Ovos Moles, Crosta Dourada, Açúcar Queimado) */
+  --color-caramel-100: #F7EBDD;
+  --color-caramel-200: #EDD3B6;
+  --color-caramel-300: #DDB07D;
+  --color-caramel-400: #C88A4B;
+  --color-caramel-500: #B37436;
+  --color-caramel-600: #965C24;
+  --color-caramel-700: #754417;
+
+  /* Paleta Farinha / Creme Claro (Trigo, Nata, Mármore de Balcão) */
+  --color-flour-50: #FFFFFF;
+  --color-flour-100: #FAF6F0;
+  --color-flour-200: #F3ECE1;
+  --color-flour-300: #E6DEC8;
+  --color-flour-400: #D2C5AE;
+
+  /* Paleta Forno / Cacau Escuro (Lenha, Café de Balcão, Ferro Forjado) */
+  --color-oven-950: #110C09;
+  --color-oven-900: #1E1612;
+  --color-oven-800: #2A1F1A;
+  --color-oven-700: #3D2E27;
+  --color-oven-600: #59453B;
+  --color-oven-500: #7A6357;
+  --color-oven-400: #A38E82;
+
+  /* Cores de Estado / Alergénios & Avisos */
+  --color-emerald-700: #2D6A4F;
+  --color-amber-700: #B45309;
+  --color-crimson-700: #9B2226;
+
+  /* Escala de Espaçamento (Base 4px) */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Raios de Borda */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Sombras Artesanais */
+  --shadow-subtle: 0 2px 10px rgba(30, 22, 18, 0.05);
+  --shadow-elevated: 0 12px 32px -4px rgba(30, 22, 18, 0.12);
+  --shadow-glow-caramel: 0 8px 24px rgba(200, 138, 75, 0.28);
+  --shadow-dark-card: 0 14px 36px rgba(0, 0, 0, 0.42);
+
+  /* Transições */
+  --transition-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 500ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ==========================================================================
+     CAMADA 2: SEMANTIC TOKENS (Propósito Editorial & Contexto Visual)
+     ========================================================================== */
+  /* Fundos de Secção */
+  --bg-page-light: var(--color-flour-100);
+  --bg-surface-elevated: var(--color-flour-50);
+  --bg-surface-warm: var(--color-flour-200);
+  --bg-section-dark: var(--color-oven-900);
+  --bg-section-deeper: var(--color-oven-950);
+  --bg-dark-card: var(--color-oven-800);
+
+  /* Texto e Tipografia */
+  --text-primary-on-light: var(--color-oven-900);
+  --text-secondary-on-light: var(--color-oven-600);
+  --text-muted-on-light: var(--color-oven-500);
+  --text-primary-on-dark: var(--color-flour-100);
+  --text-secondary-on-dark: var(--color-flour-300);
+  --text-muted-on-dark: var(--color-oven-400);
+
+  /* Acentos e Marca */
+  --brand-accent-primary: var(--color-caramel-400);
+  --brand-accent-hover: var(--color-caramel-500);
+  --brand-accent-soft: var(--color-caramel-200);
+  --brand-accent-subtle: var(--color-caramel-100);
+
+  /* Divisores e Contornos */
+  --border-light-subtle: var(--color-flour-300);
+  --border-light-strong: var(--color-flour-400);
+  --border-dark-subtle: rgba(250, 246, 240, 0.12);
+  --border-gold-accent: rgba(200, 138, 75, 0.45);
+
+  /* Ritmo de Layout */
+  --section-padding-y: var(--space-24);
+  --section-padding-y-mobile: var(--space-16);
+  --container-max-width: 1280px;
+
+  /* ==========================================================================
+     CAMADA 3: COMPONENT TOKENS (Especificações por Componente)
+     ========================================================================== */
+  /* Topbar Fina Superior */
+  --topbar-bg: rgba(20, 14, 11, 0.92);
+  --topbar-text: var(--color-flour-300);
+  --topbar-accent: var(--color-caramel-300);
+  --topbar-border: rgba(250, 246, 240, 0.1);
+  --topbar-height: 2.5rem;
+
+  /* Navbar Integrada sobre Hero */
+  --navbar-bg-overlay: rgba(30, 22, 18, 0.55);
+  --navbar-bg-scrolled: rgba(30, 22, 18, 0.96);
+  --navbar-link-color: var(--color-flour-100);
+  --navbar-link-active: var(--color-caramel-400);
+  --navbar-cta-border: var(--color-caramel-400);
+  --navbar-cta-hover-bg: var(--color-caramel-400);
+
+  /* Botão Principal Caramelo */
+  --btn-primary-bg: var(--brand-accent-primary);
+  --btn-primary-hover-bg: var(--brand-accent-hover);
+  --btn-primary-text: var(--color-flour-50);
+  --btn-primary-radius: var(--radius-xs);
+  --btn-primary-shadow: var(--shadow-glow-caramel);
+
+  /* Cartões de Vitrina & Fornadas */
+  --vitrina-price-badge-bg: var(--color-caramel-400);
+  --vitrina-price-badge-text: var(--color-flour-50);
+  --fresh-card-overlay: linear-gradient(to top, rgba(20, 14, 11, 0.92) 0%, rgba(20, 14, 11, 0.25) 55%, rgba(20, 14, 11, 0.1) 100%);
+  --fresh-card-plus-bg: var(--color-caramel-400);
+  --fresh-card-plus-text: var(--color-flour-50);
+
+  /* Linha de Passos 01, 02, 03 */
+  --step-line-color: var(--color-flour-300);
+  --step-marker-border: var(--color-caramel-400);
+  --step-number-color: var(--color-oven-900);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bg-page-light);
+  color: var(--text-primary-on-light);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-caramel-400);
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: var(--color-caramel-400);
+  color: var(--color-oven-950);
+}
