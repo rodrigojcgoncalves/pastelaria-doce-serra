@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Plus_Jakarta_Sans, Cormorant_Garamond } from "next/font/google";
+import { CookieBanner } from "@/components/CookieBanner";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -43,6 +44,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen overflow-x-hidden bg-[#FAF6F0] text-[#1E1612] antialiased selection:bg-[#C88A4B] selection:text-[#140E0B]">
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

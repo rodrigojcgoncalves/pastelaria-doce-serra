@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, type FormEvent } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2, CakeSlice, Calendar, Clock, MapPin } from "lucide-react";
 
@@ -41,6 +42,7 @@ export function CakeOrderForm() {
   const [customerPhone, setCustomerPhone] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [rgpdConsent, setRgpdConsent] = useState(false);
   const [submittedRef, setSubmittedRef] = useState<string | null>(null);
 
   useEffect(() => {
@@ -368,6 +370,28 @@ export function CakeOrderForm() {
             placeholder="Indique se pretende velas, tabuleiros de miniaturas ou morada para entrega em Lisboa..."
             className="mt-2 w-full border border-[#D2C5AE] bg-[#FAF6F0] px-4 py-2.5 text-sm text-[#1E1612] focus:border-[#C88A4B] focus:outline-none"
           />
+        </div>
+
+        {/* Consentimento RGPD Obrigatório */}
+        <div className="flex items-start gap-3 border border-[#E6DEC8] bg-[#FAF6F0] p-4">
+          <input
+            id="rgpd-consent"
+            type="checkbox"
+            required
+            checked={rgpdConsent}
+            onChange={(e) => setRgpdConsent(e.target.checked)}
+            className="mt-0.5 h-5 w-5 shrink-0 accent-[#C88A4B]"
+          />
+          <label htmlFor="rgpd-consent" className="text-xs leading-relaxed text-[#59453B]">
+            Li e aceito a{" "}
+            <Link
+              href="/privacidade"
+              className="font-semibold text-[#965C24] underline underline-offset-4 hover:text-[#1E1612]"
+            >
+              Política de Privacidade (RGPD)
+            </Link>{" "}
+            e autorizo o tratamento dos meus dados estritamente para confirmação desta encomenda. *
+          </label>
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-[#E6DEC8] pt-6 sm:flex-row">

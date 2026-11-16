@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Clock, Mail, Instagram } from "lucide-react";
+import { MapPin, Phone, Clock, Mail, Instagram, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
@@ -24,18 +24,18 @@ export function Footer() {
               <a
                 href="https://instagram.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Instagram da Pastelaria Doce Serra"
-                className="inline-flex h-10 w-10 items-center justify-center border border-white/15 text-[#E6DEC8] transition-colors hover:border-[#C88A4B] hover:text-[#C88A4B]"
+                className="inline-flex h-11 w-11 items-center justify-center border border-white/15 text-[#E6DEC8] transition-colors hover:border-[#C88A4B] hover:text-[#C88A4B]"
               >
-                <Instagram className="h-4 w-4" />
+                <Instagram className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href="mailto:encomendas@doceserra.pt"
                 aria-label="Enviar email para Pastelaria Doce Serra"
-                className="inline-flex h-10 w-10 items-center justify-center border border-white/15 text-[#E6DEC8] transition-colors hover:border-[#C88A4B] hover:text-[#C88A4B]"
+                className="inline-flex h-11 w-11 items-center justify-center border border-white/15 text-[#E6DEC8] transition-colors hover:border-[#C88A4B] hover:text-[#C88A4B]"
               >
-                <Mail className="h-4 w-4" />
+                <Mail className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -47,14 +47,14 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="text-[#E6DEC8]/85 transition-colors hover:text-[#DDB07D]">
+                <Link href="/" className="text-[#E6DEC8]/90 transition-colors hover:text-[#DDB07D]">
                   Início
                 </Link>
               </li>
               <li>
                 <Link
                   href="/sobre-nos"
-                  className="text-[#E6DEC8]/85 transition-colors hover:text-[#DDB07D]"
+                  className="text-[#E6DEC8]/90 transition-colors hover:text-[#DDB07D]"
                 >
                   Sobre Nós
                 </Link>
@@ -62,7 +62,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#vitrina"
-                  className="text-[#E6DEC8]/85 transition-colors hover:text-[#DDB07D]"
+                  className="text-[#E6DEC8]/90 transition-colors hover:text-[#DDB07D]"
                 >
                   Montra &amp; Bolos
                 </Link>
@@ -70,7 +70,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/faqs"
-                  className="text-[#E6DEC8]/85 transition-colors hover:text-[#DDB07D]"
+                  className="text-[#E6DEC8]/90 transition-colors hover:text-[#DDB07D]"
                 >
                   Perguntas Frequentes
                 </Link>
@@ -78,7 +78,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/contactos"
-                  className="text-[#E6DEC8]/85 transition-colors hover:text-[#DDB07D]"
+                  className="text-[#E6DEC8]/90 transition-colors hover:text-[#DDB07D]"
                 >
                   Visitar &amp; Encomendar
                 </Link>
@@ -109,10 +109,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Coluna Contactos */}
+          {/* Coluna Contactos & Informação Legal */}
           <div className="lg:col-span-3">
             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C88A4B]">
-              Lojas em Lisboa
+              Lojas &amp; Informação Legal
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-[#A38E82]">
               <li className="flex items-start gap-2.5">
@@ -132,15 +132,37 @@ export function Footer() {
                   +351 213 884 920
                 </a>
               </li>
+              <li className="pt-1 text-xs text-[#A38E82]">
+                Pastelaria Doce Serra, Lda. · NIF 509 000 000 (demonstração)
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-[#7A6357] sm:flex-row">
+        {/* Barra Inferior Legal (RGPD + Livro de Reclamações) */}
+        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 text-xs text-[#A38E82] lg:flex-row lg:items-center">
           <p>© {new Date().getFullYear()} Pastelaria Doce Serra, Lda. · Fabrico Próprio em Lisboa.</p>
-          <p className="font-accent text-sm italic text-[#A38E82]">
-            Forno aceso desde 1988
-          </p>
+
+          <nav aria-label="Links legais" className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacidade" className="transition-colors hover:text-[#DDB07D]">
+              Política de Privacidade (RGPD)
+            </Link>
+            <Link href="/termos" className="transition-colors hover:text-[#DDB07D]">
+              Termos &amp; Reembolsos
+            </Link>
+            <Link href="/cookies" className="transition-colors hover:text-[#DDB07D]">
+              Política de Cookies
+            </Link>
+            <a
+              href="https://www.livroreclamacoes.pt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[#DDB07D] transition-colors hover:text-white"
+            >
+              <span>Livro de Reclamações Eletrónico</span>
+              <ExternalLink className="h-3 w-3" aria-hidden="true" />
+            </a>
+          </nav>
         </div>
       </div>
     </footer>
